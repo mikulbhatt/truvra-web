@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Truvra — The Trust Layer for Agentic Media Buying</title>
+<meta name="description" content="Truvra is the trust and governance layer for agentic media buying. It verifies every agent in the ecosystem — buy side, sell side, and intermediaries like data providers, clean rooms, identity, measurement, and creative — with scoped authority and a complete audit trail.">
+<link rel="canonical" href="https://truvra.ai/">
+<meta name="theme-color" content="#FBF8F3">
+<meta property="og:title" content="Truvra — The Trust Layer for Agentic Media Buying">
+<meta property="og:description" content="Verify the agent, not just the impression. Verified identity, scoped authority, and a complete audit trail for autonomous media-buying agents.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://truvra.ai/">
+<meta property="og:site_name" content="Truvra">
+<meta property="og:image" content="https://truvra.ai/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Truvra — the trust layer for agentic media buying">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Truvra — The Trust Layer for Agentic Media Buying">
+<meta name="twitter:description" content="Verify the agent, not just the impression — verified identity, scoped authority, and a complete audit trail for autonomous media buying.">
+<meta name="twitter:image" content="https://truvra.ai/og-image.png">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"Truvra","legalName":"Ritava, Inc.","url":"https://truvra.ai","logo":"https://truvra.ai/icon-512.png","description":"The trust and governance layer for agentic media buying.","email":"hello@truvra.ai"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What does Truvra actually do?","acceptedAnswer":{"@type":"Answer","text":"Truvra is a control plane that gives autonomous media-buying agents a verified identity, scoped authority, governed execution, and a complete audit trail — so autonomous transactions can be trusted by brands, publishers, and regulators."}},
+{"@type":"Question","name":"How is Truvra different from verification vendors like DoubleVerify or IAS?","acceptedAnswer":{"@type":"Answer","text":"Those vendors verify the ad impression — viewability, brand safety, fraud. Truvra verifies the agent itself: who it is, whether it is authorized, and what it did. It is complementary, not a replacement."}},
+{"@type":"Question","name":"Does Truvra only cover buyers and sellers?","acceptedAnswer":{"@type":"Answer","text":"No. Truvra verifies any agent in the media-buying ecosystem: advertisers, agencies and holdcos, DSPs, SSPs, publishers and retail media, plus intermediaries such as data providers, aggregators, clean rooms, identity and signal providers, measurement and attribution, brand safety, and creative."}},
+{"@type":"Question","name":"How does Truvra handle compliance and audit?","acceptedAnswer":{"@type":"Answer","text":"Every authorized action is recorded to a tamper-evident, append-only ledger, with reporting designed for finance, risk, and regulatory frameworks like the EU AI Act in mind."}},
+{"@type":"Question","name":"Is Truvra available now?","acceptedAnswer":{"@type":"Answer","text":"Truvra is pre-launch. Join the waitlist for launch access, or apply to the design partner program to help shape the product."}}
+]}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- icon sprite -->
+<svg style="position:absolute;width:0;height:0" aria-hidden="true" focusable="false"><defs>
+<symbol id="i-identity" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2.5"/><circle cx="9" cy="11" r="2.2"/><path d="M5.8 16.6c0-1.9 1.6-2.7 3.2-2.7s3.2.8 3.2 2.7"/><path d="M15 10h3.6M15 13.4h2.7"/></symbol>
+<symbol id="i-policy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6.5A1.5 1.5 0 0 0 5 4.5v15A1.5 1.5 0 0 0 6.5 21h11a1.5 1.5 0 0 0 1.5-1.5V8z"/><path d="M14 3v5h5"/><path d="M8.5 14.4l2 2 4-4.2"/></symbol>
+<symbol id="i-runtime" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 2.6v5.2c0 4.6-3.1 7.6-7 8.7-3.9-1.1-7-4.1-7-8.7V5.6z"/><path d="M9 12l2 2 4-4.3"/></symbol>
+<symbol id="i-signal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1" fill="currentColor" stroke="none"/></symbol>
+<symbol id="i-ledger" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v17l-2-1.3-2 1.3-2-1.3-2 1.3-2-1.3z"/><path d="M9 8h6M9 11.5h6M9 15h4"/></symbol>
+<symbol id="i-lens" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="2.6"/></symbol>
+<symbol id="i-verify" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.6l2.2 1.6 2.7-.3 1 2.6 2.4 1.3-.6 2.7.6 2.7-2.4 1.3-1 2.6-2.7-.3L12 21.4l-2.2-1.6-2.7.3-1-2.6-2.4-1.3.6-2.7-.6-2.7 2.4-1.3 1-2.6 2.7.3z"/><path d="M8.9 12l2.1 2.1 4.1-4.3"/></symbol>
+<symbol id="i-key" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="4.2"/><path d="M11 11l8.5 8.5M16.5 16.5l2-2M19 19l1.5-1.5"/></symbol>
+<symbol id="i-clipboard" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4.5" width="14" height="16" rx="2"/><path d="M9 4.5V3.6a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v.9"/><path d="M8.8 12.6l2 2 4-4.2"/></symbol>
+<symbol id="i-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4.5l8.2 14h-16.4z"/><path d="M12 10v4M12 16.8v.1"/></symbol>
+<symbol id="i-agent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2.4"/><rect x="9.5" y="9.5" width="5" height="5" rx="1"/><path d="M9 6V3.6M15 6V3.6M9 20.4V18M15 20.4V18M6 9H3.6M6 15H3.6M20.4 9H18M20.4 15H18"/></symbol>
+<symbol id="i-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3.5" width="14" height="17" rx="1.5"/><path d="M9 7h2M13 7h2M9 10.5h2M13 10.5h2M9 14h2M13 14h2"/><path d="M10.5 20.5v-3h3v3"/></symbol>
+<symbol id="i-publisher" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="14" rx="1.8"/><path d="M7 9h6M7 12h6M7 15h4M15.5 9h2.5M15.5 12.5h2.5"/></symbol>
+<symbol id="i-risk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M7.5 20h9M5 8.5h14"/><path d="M5 8.5L2.8 13a2.6 2.6 0 0 0 4.4 0z"/><path d="M19 8.5L16.8 13a2.6 2.6 0 0 0 4.4 0z"/><path d="M12 5.2L5.2 8M12 5.2L18.8 8"/></symbol>
+<symbol id="i-compass" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M15.4 8.6l-1.7 4.7-4.7 1.7 1.7-4.7z"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></symbol>
+<symbol id="i-database" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v12c0 1.7 3.1 3 7 3s7-1.3 7-3V6"/><path d="M5 12c0 1.7 3.1 3 7 3s7-1.3 7-3"/></symbol>
+<symbol id="i-graph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="7" r="2.2"/><circle cx="18" cy="6" r="2.2"/><circle cx="17" cy="17" r="2.2"/><circle cx="7" cy="17.5" r="2.2"/><path d="M8.1 7.8l7.8-1.2M7.6 9.1l8.6 6.3M9 17.2l6-.4M6.7 9.1l.6 6.3"/></symbol>
+<symbol id="i-loop" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11A8 8 0 0 0 6.3 5.7L4 8"/><path d="M4 13a8 8 0 0 0 13.7 5.3L20 16"/><path d="M4 4v4h4M20 20v-4h-4"/></symbol>
+</defs></svg>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">
+      <svg class="logo" viewBox="0 0 40 40" fill="none" aria-hidden="true"><circle cx="20" cy="20" r="18.5" stroke="#0E7C71" stroke-width="2"/><path d="M12 20.5L18 26.5L29 14.5" stroke="#0E7C71" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="20" cy="20" r="18.5" stroke="#F2A65A" stroke-width="2" stroke-dasharray="2 6" opacity="0.6"/></svg>
+      Truvra
+    </a>
+    <div class="nav-links">
+      <a href="product.html">Product</a>
+      <a href="index.html#how">How it works</a>
+      <a href="company.html">Company</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="nav-cta">
+      <a class="btn btn-ghost" href="contact.html#demo">Book a demo</a>
+      <a class="btn btn-primary" href="contact.html#waitlist">Join waitlist</a>
+    </div>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">&#9776;</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="main" tabindex="-1">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">The trust layer for agentic media buying</span>
+      <h1 style="margin-top:18px">Trusted autonomy for <span class="serif-em">agentic media buying</span>.</h1>
+      <p class="lede">Autonomous agents are starting to transact across the media-buying ecosystem — on the buy side, the sell side, and everywhere in between. Truvra is the trust and governance layer that lets them, giving every agent a verified identity, scoped authority, and a complete, auditable record of everything it does.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary btn-lg" href="contact.html#waitlist">Join the waitlist</a>
+        <a class="btn btn-ghost btn-lg" href="contact.html#demo">Book a demo</a>
+      </div>
+      <p class="hero-note">Any agent, any role — buyer, seller, and the data, signal, measurement &amp; creative providers in between.</p>
+      <div class="pillars">
+        <span class="chip"><span class="dot"></span>Verify</span>
+        <span class="chip"><span class="dot"></span>Authorize</span>
+        <span class="chip"><span class="dot"></span>Govern</span>
+        <span class="chip warm"><span class="dot"></span>Prove</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="cp-card">
+        <div class="cp-head">
+          <span class="cp-title">
+            <svg width="18" height="18" viewBox="0 0 40 40" fill="none" aria-hidden="true"><circle cx="20" cy="20" r="17" stroke="#0E7C71" stroke-width="3"/><path d="M12 20.5L18 26.5L29 14.5" stroke="#0E7C71" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Truvra Control Plane
+          </span>
+          <span class="cp-badge">live</span>
+        </div>
+        <div class="cp-row">
+          <span class="cp-ic"><svg aria-hidden="true"><use href="#i-identity"/></svg></span>
+          <span><span class="t">Agent identity verified</span><br><span class="s">dsp-agent · acme-media · attested</span></span>
+          <span class="cp-status cp-ok">verified</span>
+        </div>
+        <div class="cp-row">
+          <span class="cp-ic"><svg aria-hidden="true"><use href="#i-policy"/></svg></span>
+          <span><span class="t">Buy · private marketplace</span><br><span class="s">within policy · brand-safety tier 1</span></span>
+          <span class="cp-status cp-ok">permit</span>
+        </div>
+        <div class="cp-row">
+          <span class="cp-ic hold"><svg aria-hidden="true"><use href="#i-alert"/></svg></span>
+          <span><span class="t">Budget cap exceeded</span><br><span class="s">$25k cap · pacing breach</span></span>
+          <span class="cp-status cp-hold">held</span>
+        </div>
+        <div class="cp-row">
+          <span class="cp-ic"><svg aria-hidden="true"><use href="#i-ledger"/></svg></span>
+          <span><span class="t">Action recorded to ledger</span><br><span class="s">tx:9c2f… · append-only</span></span>
+          <span class="cp-status cp-ok">logged</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<!-- PROBLEM / WHY NOW -->
+<section class="section" id="why">
+  <div class="wrap">
+    <div class="center mx-auto maxch reveal" style="margin-bottom:48px">
+      <span class="eyebrow">Why now</span>
+      <h2 style="margin-top:14px">Agents are learning to buy media. Nothing is checking their work.</h2>
+      <p class="lede muted" style="margin-top:14px">Buyers and sellers are beginning to transact through autonomous agents over open protocols. But there's no shared way to know what an agent <em>is</em>, what it's allowed to do, or to prove what it did. That gap is where budget, brand safety, and compliance risk live.</p>
+    </div>
+    <div class="stats reveal">
+      <div class="stat">
+        <div class="num">$700B+</div>
+        <div class="lab">Global programmatic ad spend — the market agents are now learning to transact in.</div>
+        <div class="src">Statista, 2025</div>
+      </div>
+      <div class="stat">
+        <div class="num">33%</div>
+        <div class="lab">Of enterprise software will feature agentic AI by 2028, up from under 1% in 2024 — autonomy is arriving fast.</div>
+        <div class="src">Gartner, 2025</div>
+      </div>
+      <div class="stat">
+        <div class="num">$172B</div>
+        <div class="lab">Projected annual ad-spend lost to fraud by 2028 — the cost of transactions no one can verify.</div>
+        <div class="src">Juniper Research, 2025</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUR VERBS -->
+<section class="section" style="background:var(--cream-2);border-block:1px solid var(--line)">
+  <div class="wrap">
+    <div class="center mx-auto maxch reveal" style="margin-bottom:46px">
+      <span class="eyebrow">What Truvra does</span>
+      <h2 style="margin-top:14px">Four jobs, one control plane.</h2>
+    </div>
+    <div class="verbs reveal">
+      <div class="verb"><div class="vic"><svg aria-hidden="true"><use href="#i-verify"/></svg></div><div class="n">01 — VERIFY</div><h3>Know the agent</h3><p>Confirm which agent is acting, on whose behalf, and that it is who it claims to be — before anything happens.</p></div>
+      <div class="verb"><div class="vic"><svg aria-hidden="true"><use href="#i-key"/></svg></div><div class="n">02 — AUTHORIZE</div><h3>Scope the authority</h3><p>Define what each agent may do — which budgets, deals, and brand standards apply — in the right context.</p></div>
+      <div class="verb"><div class="vic"><svg aria-hidden="true"><use href="#i-runtime"/></svg></div><div class="n">03 — GOVERN</div><h3>Gate the action</h3><p>Let agents execute only within their authority. Anything out of bounds is held, not bought.</p></div>
+      <div class="verb"><div class="vic"><svg aria-hidden="true"><use href="#i-clipboard"/></svg></div><div class="n">04 — PROVE</div><h3>Record everything</h3><p>Keep a tamper-evident, queryable trail of every decision — defensible to brands, risk, and regulators.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ARCHITECTURE DIAGRAM -->
+<section class="section" id="how">
+  <div class="wrap">
+    <div class="center mx-auto maxch reveal" style="margin-bottom:40px">
+      <span class="eyebrow">How it works</span>
+      <h2 style="margin-top:14px">A neutral layer between every agent.</h2>
+      <p class="lede muted" style="margin-top:14px">Truvra sits in the middle of the handshake — verifying, authorizing, governing, and recording every action before media changes hands.</p>
+    </div>
+    <div class="diagram reveal">
+      <svg viewBox="0 0 1000 420" role="img" aria-label="Diagram: a buyer agent and a seller agent both transact through the Truvra control plane, which verifies, authorizes, governs, and records each action to an append-only ledger.">
+        <defs>
+          <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0E7C71"/></marker>
+        </defs>
+        <!-- buyer -->
+        <rect x="30" y="150" width="180" height="110" rx="16" fill="#FFFFFF" stroke="#E0D8C9"/>
+        <g transform="translate(110,168)" fill="none" stroke="#0E7C71" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="0" y="0" width="20" height="20" rx="4"/><rect x="5.8" y="5.8" width="8.4" height="8.4" rx="1.5"/></g>
+        <text x="120" y="216" font-family="Inter,sans-serif" font-size="17" font-weight="700" fill="#17202E" text-anchor="middle">Buyer agent</text>
+        <text x="120" y="237" font-family="Inter,sans-serif" font-size="13" fill="#5C6878" text-anchor="middle">DSP · advertiser</text>
+        <!-- seller -->
+        <rect x="790" y="150" width="180" height="110" rx="16" fill="#FFFFFF" stroke="#E0D8C9"/>
+        <g transform="translate(870,168)" fill="none" stroke="#0E7C71" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="0" y="2" width="20" height="16" rx="2"/><path d="M3.5 7h7M3.5 11h7M14 7h2.5M14 11h2.5"/></g>
+        <text x="880" y="216" font-family="Inter,sans-serif" font-size="17" font-weight="700" fill="#17202E" text-anchor="middle">Seller agent</text>
+        <text x="880" y="237" font-family="Inter,sans-serif" font-size="13" fill="#5C6878" text-anchor="middle">SSP · publisher</text>
+        <!-- control plane -->
+        <rect x="300" y="50" width="400" height="230" rx="22" fill="#E4F1EF" stroke="#0E7C71" stroke-width="1.5"/>
+        <text x="500" y="86" font-family="Fraunces,serif" font-size="20" font-weight="600" fill="#0B5F57" text-anchor="middle">Truvra Control Plane</text>
+        <g>
+          <rect x="328" y="108" width="156" height="62" rx="12" fill="#FFFFFF" stroke="#CFE3DF"/>
+          <text x="406" y="135" font-family="Inter,sans-serif" font-size="14" font-weight="700" fill="#17202E" text-anchor="middle">Verify</text>
+          <text x="406" y="154" font-family="Inter,sans-serif" font-size="11.5" fill="#5C6878" text-anchor="middle">identity</text>
+          <rect x="516" y="108" width="156" height="62" rx="12" fill="#FFFFFF" stroke="#CFE3DF"/>
+          <text x="594" y="135" font-family="Inter,sans-serif" font-size="14" font-weight="700" fill="#17202E" text-anchor="middle">Authorize</text>
+          <text x="594" y="154" font-family="Inter,sans-serif" font-size="11.5" fill="#5C6878" text-anchor="middle">scope &amp; context</text>
+          <rect x="328" y="182" width="156" height="62" rx="12" fill="#FFFFFF" stroke="#CFE3DF"/>
+          <text x="406" y="209" font-family="Inter,sans-serif" font-size="14" font-weight="700" fill="#17202E" text-anchor="middle">Govern</text>
+          <text x="406" y="228" font-family="Inter,sans-serif" font-size="11.5" fill="#5C6878" text-anchor="middle">gate execution</text>
+          <rect x="516" y="182" width="156" height="62" rx="12" fill="#FCEFE0" stroke="#F2A65A"/>
+          <text x="594" y="209" font-family="Inter,sans-serif" font-size="14" font-weight="700" fill="#17202E" text-anchor="middle">Prove</text>
+          <text x="594" y="228" font-family="Inter,sans-serif" font-size="11.5" fill="#7A5A2E" text-anchor="middle">record</text>
+        </g>
+        <!-- arrows -->
+        <line x1="212" y1="190" x2="296" y2="150" stroke="#0E7C71" stroke-width="2" marker-end="url(#arr)"/>
+        <text x="250" y="150" font-family="Inter,sans-serif" font-size="12" fill="#5C6878" text-anchor="middle">request</text>
+        <line x1="704" y1="150" x2="788" y2="190" stroke="#0E7C71" stroke-width="2" marker-end="url(#arr)"/>
+        <text x="752" y="150" font-family="Inter,sans-serif" font-size="12" fill="#5C6878" text-anchor="middle">authorized</text>
+        <!-- ledger strip -->
+        <rect x="300" y="320" width="400" height="56" rx="14" fill="#17202E"/>
+        <g transform="translate(330,335)" fill="none" stroke="#F2A65A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M0 0h18v25l-3-2-3 2-3-2-3 2-3-2-3 2z"/><path d="M4 5h10M4 9.5h10"/></g>
+        <text x="500" y="346" font-family="Inter,sans-serif" font-size="15" font-weight="700" fill="#FFFFFF" text-anchor="middle">Append-only audit ledger</text>
+        <text x="500" y="365" font-family="Inter,sans-serif" font-size="12" fill="#B6C0CC" text-anchor="middle">every decision · queryable · tamper-evident</text>
+        <line x1="500" y1="280" x2="500" y2="318" stroke="#17202E" stroke-width="2" stroke-dasharray="3 4" marker-end="url(#arr)"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCT MODULES -->
+<section class="section" id="platform">
+  <div class="wrap">
+    <div class="center mx-auto maxch reveal" style="margin-bottom:46px">
+      <span class="eyebrow">The platform</span>
+      <h2 style="margin-top:14px">Six modules that make autonomy accountable.</h2>
+      <p class="lede muted" style="margin-top:14px">A neutral control plane that sits between buyer and seller agents — no matter which platform or protocol they run on.</p>
+    </div>
+    <div class="grid-3 reveal">
+      <div class="card"><div class="ic"><svg aria-hidden="true"><use href="#i-identity"/></svg></div><h3><span class="kicker">Verify</span>Truvra Identity</h3><p>Cryptographic identity and counterparty attestation for every agent in the transaction.</p></div>
+      <div class="card"><div class="ic"><svg aria-hidden="true"><use href="#i-policy"/></svg></div><h3><span class="kicker">Authorize</span>Truvra Policy</h3><p>An ontology-driven rule engine defining permissions, deal terms, and brand constraints.</p></div>
+      <div class="card warm"><div class="ic"><svg aria-hidden="true"><use href="#i-runtime"/></svg></div><h3><span class="kicker">Govern</span>Truvra Runtime</h3><p>A policy gate that lets agents act only within scope — pacing, budget, and delivery bounded in real time.</p></div>
+      <div class="card warm"><div class="ic"><svg aria-hidden="true"><use href="#i-signal"/></svg></div><h3><span class="kicker">Authorize</span>Truvra Signal</h3><p>Contextual decisioning that grants the right authority at the right moment — discernment, not a static list.</p></div>
+      <div class="card"><div class="ic"><svg aria-hidden="true"><use href="#i-ledger"/></svg></div><h3><span class="kicker">Prove</span>Truvra Ledger</h3><p>A tamper-evident, append-only record of every authorized action — designed as the system of record for autonomous spend.</p></div>
+      <div class="card"><div class="ic"><svg aria-hidden="true"><use href="#i-lens"/></svg></div><h3><span class="kicker">Prove</span>Truvra Lens</h3><p>Real-time observability and reporting: what happened, why, and under whose authority.</p></div>
+    </div>
+    <div class="center" style="margin-top:36px">
+      <a class="btn btn-ghost btn-arrow" href="product.html">Explore the platform</a>
+    </div>
+  </div>
+</section>
+
+<!-- ONTOLOGY CORE / REASONING LAYER -->
+<section class="section" id="core">
+  <div class="wrap">
+    <div class="center mx-auto maxch reveal" style="margin-bottom:18px">
+      <span class="eyebrow">Ontology &amp; reasoning layer</span>
+      <h2 style="margin-top:14px">An ontology-driven core that understands meaning.</h2>
+      <p class="lede muted" style="margin-top:14px">Real-time bidding is giving way to real-time reasoning. For agents to transact safely, they have to share a consistent understanding of what an audience, a deal, or a brand standard actually <em>means</em>. Truvra's <strong>ontology and knowledge graph</strong> make that meaning machine-readable — so governance can track <strong>semantic alignment</strong> between agents, not just check permissions. It's protocol-native to open standards like the Ad Context Protocol, sitting as the trust layer above the bidstream.</p>
+    </div>
+
+    <div class="diagram reveal" style="margin-top:36px">
+      <svg viewBox="0 0 1000 440" role="img" aria-label="Truvra's ontology as a knowledge graph: an Agent acts for an Advertiser and transacts a Deal; an Audience, informed by Signals, is scoped by the Deal; the Deal is bound by a Brand standard, which Creative is checked against, and is measured by an Outcome. One shared ontology keeps every agent's meaning of these concepts consistent.">
+        <g stroke="#CDDAD6" stroke-width="1.6" fill="none">
+          <line x1="160" y1="99" x2="160" y2="211"/>
+          <line x1="205" y1="228" x2="425" y2="226"/>
+          <line x1="470" y1="89" x2="470" y2="206"/>
+          <line x1="470" y1="244" x2="470" y2="356"/>
+          <line x1="515" y1="226" x2="735" y2="233"/>
+          <line x1="530" y1="72" x2="750" y2="80"/>
+          <line x1="800" y1="361" x2="808" y2="254"/>
+        </g>
+        <g font-family="Inter,sans-serif" font-size="11" fill="#7A8493" font-style="italic" text-anchor="middle">
+          <text x="118" y="158">acts for</text>
+          <text x="315" y="214">transacts</text>
+          <text x="527" y="150">scoped by</text>
+          <text x="548" y="304">measured by</text>
+          <text x="625" y="213">bound by</text>
+        </g>
+        <g font-family="Inter,sans-serif" font-size="14" font-weight="600" text-anchor="middle">
+          <g fill="#ffffff" stroke="#9CC4BE" stroke-width="1.4">
+            <rect x="100" y="61" width="120" height="38" rx="19"/>
+            <rect x="410" y="51" width="120" height="38" rx="19"/>
+            <rect x="415" y="356" width="110" height="38" rx="19"/>
+            <rect x="750" y="61" width="100" height="38" rx="19"/>
+            <rect x="735" y="216" width="150" height="38" rx="19"/>
+            <rect x="745" y="361" width="110" height="38" rx="19"/>
+          </g>
+          <g fill="#17202E">
+            <text x="160" y="85">Advertiser</text>
+            <text x="470" y="75">Audience</text>
+            <text x="470" y="380">Outcome</text>
+            <text x="800" y="85">Signal</text>
+            <text x="810" y="240">Brand standard</text>
+            <text x="800" y="385">Creative</text>
+          </g>
+          <rect x="115" y="211" width="90" height="38" rx="19" fill="#0E7C71"/><text x="160" y="235" fill="#ffffff">Agent</text>
+          <rect x="425" y="206" width="90" height="38" rx="19" fill="#0E7C71"/><text x="470" y="230" fill="#ffffff">Deal</text>
+        </g>
+        <text x="500" y="428" text-anchor="middle" font-family="Inter,sans-serif" font-size="13" fill="#5C6878" font-style="italic">One ontology — every agent shares the same meaning of audiences, deals, and standards.</text>
+      </svg>
+    </div>
+
+    <div class="grid-4 reveal" style="margin-top:38px">
+      <div class="card stage"><span class="tag-core">Core charter</span><div class="ic"><svg aria-hidden="true"><use href="#i-runtime"/></svg></div><h3>Govern</h3><p>The control plane: verify identity, scope authority, and gate every agent action in real time.</p></div>
+      <div class="card stage"><span class="tag-core">Core charter</span><div class="ic"><svg aria-hidden="true"><use href="#i-graph"/></svg></div><h3>Align</h3><p>A shared ontology and knowledge graph keep every agent's meaning of audiences, deals, and brand standards consistent — tracked as semantic alignment.</p></div>
+      <div class="card stage"><span class="tag-core">Core charter</span><div class="ic"><svg aria-hidden="true"><use href="#i-verify"/></svg></div><h3>Certify</h3><p>Independently certify agents and transactions against policy — neutral proof a counterparty, brand, or regulator can trust.</p></div>
+      <div class="card stage warm"><span class="tag-add">Value-add</span><div class="ic"><svg aria-hidden="true"><use href="#i-loop"/></svg></div><h3>Learn</h3><p>A graph-driven, closed feedback loop turns every governed decision into signal — improving alignment and outcomes over time.</p></div>
+    </div>
+    <p class="muted center" style="font-size:13px;margin-top:18px;max-width:70ch;margin-inline:auto">Govern, Align, and Certify are Truvra's core charter. The closed-loop learning system is a value-add built on the same graph and ontology.</p>
+  </div>
+</section>
+
+<!-- DIFFERENTIATION -->
+<section class="section" style="background:var(--cream-2);border-block:1px solid var(--line)">
+  <div class="wrap">
+    <div class="center mx-auto maxch reveal" style="margin-bottom:40px">
+      <span class="eyebrow">Why Truvra</span>
+      <h2 style="margin-top:14px">Verify the agent — not just the impression.</h2>
+      <p class="lede muted" style="margin-top:14px">Identity vendors don't understand adtech. Verification vendors check the ad, not the agent. Platforms build walls. Truvra closes the gap — neutrally.</p>
+    </div>
+    <div class="reveal">
+      <table class="compare">
+        <thead>
+          <tr><th>Capability</th><th>Verification vendors</th><th>Agent / IAM identity</th><th>Platform guardrails</th><th class="us">Truvra</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Verifies the agent's identity</td><td class="no">—</td><td class="yes">Yes</td><td class="no">Partial</td><td class="us yes">Yes</td></tr>
+          <tr><td>Understands adtech context</td><td class="yes">Yes</td><td class="no">—</td><td class="yes">Yes</td><td class="us yes">Yes</td></tr>
+          <tr><td>Scoped authority per agent</td><td class="no">—</td><td class="yes">Generic</td><td class="no">Per-platform</td><td class="us yes">Yes</td></tr>
+          <tr><td>Tamper-evident cross-party audit</td><td class="no">Partial</td><td class="no">—</td><td class="no">Walled</td><td class="us yes">Yes</td></tr>
+          <tr><td>Neutral &amp; cross-platform</td><td class="yes">Yes</td><td class="yes">Yes</td><td class="no">—</td><td class="us yes">Yes</td></tr>
+        </tbody>
+      </table>
+      <p class="muted center" style="font-size:13px;margin-top:14px">Illustrative comparison of category approaches. Truvra is complementary to verification and identity tooling, not a replacement.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ECOSYSTEM -->
+<section class="section" id="ecosystem">
+  <div class="wrap">
+    <div class="center mx-auto maxch reveal" style="margin-bottom:40px">
+      <span class="eyebrow">Every agent, every role</span>
+      <h2 style="margin-top:14px">If it's an agent in the ecosystem, Truvra verifies it.</h2>
+      <p class="lede muted" style="margin-top:14px">Buy side or sell side — and everyone in between. Whether the agent belongs to an advertiser, a holdco agency, a DSP, an SSP, a publisher, a data provider, a clean room, a measurement partner, or a creative vendor, it gets one verifiable identity, scoped authority, and a shared audit trail.</p>
+    </div>
+
+    <div class="diagram reveal">
+      <svg viewBox="0 0 1000 660" role="img" aria-label="Truvra sits at the center of the media-buying ecosystem — every agent orients to it. Buy side (advertisers, agencies and holdcos, DSPs), sell side (publishers, SSPs, retail media), and intermediaries (data providers and clean rooms, identity and signal providers, brand safety, measurement and attribution, and creative) all connect to one central trust layer.">
+        <defs>
+          <radialGradient id="eco-glow" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#FBE3C6" stop-opacity="0.9"/><stop offset="55%" stop-color="#FCEFE0" stop-opacity="0.45"/><stop offset="100%" stop-color="#FBF8F3" stop-opacity="0"/></radialGradient>
+          <radialGradient id="eco-core" cx="38%" cy="34%" r="75%"><stop offset="0%" stop-color="#1AA193"/><stop offset="100%" stop-color="#0B5F57"/></radialGradient>
+        </defs>
+        <circle cx="500" cy="300" r="250" fill="url(#eco-glow)"/>
+        <g fill="none" stroke="#E6D9C4" stroke-width="1.4">
+          <ellipse cx="500" cy="300" rx="360" ry="150" stroke-dasharray="2 7"/>
+          <ellipse cx="500" cy="300" rx="475" ry="252" stroke-dasharray="2 7"/>
+        </g>
+        <g stroke="#E0D4BE" stroke-width="1.4">
+          <line x1="120" y1="170" x2="500" y2="300"/><line x1="115" y1="300" x2="500" y2="300"/><line x1="120" y1="430" x2="500" y2="300"/>
+          <line x1="880" y1="170" x2="500" y2="300"/><line x1="890" y1="300" x2="500" y2="300"/><line x1="880" y1="430" x2="500" y2="300"/>
+          <line x1="250" y1="62" x2="500" y2="300"/><line x1="500" y1="62" x2="500" y2="300"/><line x1="750" y1="62" x2="500" y2="300"/>
+          <line x1="340" y1="558" x2="500" y2="300"/><line x1="660" y1="558" x2="500" y2="300"/>
+        </g>
+        <!-- core / sun -->
+        <circle cx="500" cy="300" r="86" fill="none" stroke="#F2A65A" stroke-width="2" stroke-dasharray="3 6" opacity="0.9"/>
+        <circle cx="500" cy="300" r="72" fill="url(#eco-core)"/>
+        <circle cx="500" cy="300" r="60" fill="none" stroke="#ffffff" stroke-opacity="0.18" stroke-width="1.4"/>
+        <text x="500" y="296" text-anchor="middle" font-family="Fraunces,serif" font-size="26" font-weight="600" fill="#ffffff">Truvra</text>
+        <text x="500" y="320" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#CFEAE6">one source of truth</text>
+        <!-- nodes -->
+        <g font-family="Inter,sans-serif" font-size="13.5" font-weight="600" fill="#17202E" text-anchor="middle">
+          <rect x="40" y="145" width="160" height="50" rx="12" fill="#E4F1EF" stroke="#0E7C71"/><text x="120" y="174">Advertisers</text>
+          <rect x="22" y="275" width="178" height="50" rx="12" fill="#E4F1EF" stroke="#0E7C71"/><text x="111" y="304">Agencies &amp; holdcos</text>
+          <rect x="40" y="405" width="160" height="50" rx="12" fill="#E4F1EF" stroke="#0E7C71"/><text x="120" y="434">DSPs</text>
+          <rect x="800" y="145" width="160" height="50" rx="12" fill="#E4F1EF" stroke="#0E7C71"/><text x="880" y="174">Publishers</text>
+          <rect x="810" y="275" width="160" height="50" rx="12" fill="#E4F1EF" stroke="#0E7C71"/><text x="890" y="304">SSPs</text>
+          <rect x="800" y="405" width="160" height="50" rx="12" fill="#E4F1EF" stroke="#0E7C71"/><text x="880" y="434">Retail media</text>
+          <rect x="170" y="37" width="160" height="50" rx="12" fill="#FCEFE0" stroke="#F2A65A"/><text x="250" y="66">Data &amp; cleanrooms</text>
+          <rect x="420" y="37" width="160" height="50" rx="12" fill="#FCEFE0" stroke="#F2A65A"/><text x="500" y="66">Identity &amp; signals</text>
+          <rect x="670" y="37" width="160" height="50" rx="12" fill="#FCEFE0" stroke="#F2A65A"/><text x="750" y="66">Brand safety</text>
+          <rect x="260" y="531" width="160" height="54" rx="12" fill="#FCEFE0" stroke="#F2A65A"/><text x="340" y="552" font-size="12.5">Measurement</text><text x="340" y="568" font-size="12.5">&amp; attribution</text>
+          <rect x="580" y="533" width="160" height="50" rx="12" fill="#FCEFE0" stroke="#F2A65A"/><text x="660" y="562">Creative</text>
+        </g>
+        <text x="500" y="646" text-anchor="middle" font-family="Inter,sans-serif" font-size="13" fill="#5C6878" font-style="italic">Every agent orients to one source of truth.</text>
+      </svg>
+    </div>
+    <div class="center" style="margin-top:18px;display:flex;gap:22px;justify-content:center;flex-wrap:wrap">
+      <span class="chip"><span class="dot"></span>Buy &amp; sell side</span>
+      <span class="chip warm"><span class="dot"></span>Data, signal, measurement &amp; creative providers</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" style="background:var(--cream-2);border-block:1px solid var(--line)">
+  <div class="wrap">
+    <div class="center mx-auto maxch reveal" style="margin-bottom:40px">
+      <span class="eyebrow">Questions</span>
+      <h2 style="margin-top:14px">Frequently asked.</h2>
+    </div>
+    <div class="faq reveal">
+      <details open><summary>What does Truvra actually do?</summary><p>Truvra is a control plane that gives autonomous media-buying agents a verified identity, scoped authority, governed execution, and a complete audit trail — so autonomous transactions can be trusted by brands, publishers, and regulators.</p></details>
+      <details><summary>How is Truvra different from DoubleVerify or IAS?</summary><p>Those vendors verify the ad impression — viewability, brand safety, fraud. Truvra verifies the agent itself: who it is, whether it's authorized, and what it did. It's complementary to verification tooling, not a replacement.</p></details>
+      <details><summary>Does Truvra only cover buyers and sellers?</summary><p>No — Truvra verifies any agent in the media-buying ecosystem. The buyer can be an advertiser, holdco agency, or DSP; the seller a publisher, SSP, or retail-media network. It also verifies the players in between: data providers, aggregators, clean rooms, identity and signal providers, measurement and attribution partners, brand-safety vendors, and creative providers — anyone building an agent in adtech.</p></details>
+      <details><summary>How does Truvra handle compliance and audit?</summary><p>Every authorized action is recorded to a tamper-evident, append-only ledger, with reporting designed for finance, risk, and regulatory frameworks like the EU AI Act in mind.</p></details>
+      <details><summary>Is Truvra available now?</summary><p>Truvra is pre-launch. Join the waitlist for launch access, or apply to the design partner program to help shape the product.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- DESIGN PARTNER BAND -->
+<section class="section">
+  <div class="wrap reveal">
+    <div class="band">
+      <span class="eyebrow" style="color:#CFEAE6">Design partner program</span>
+      <h2 style="margin-top:14px;max-width:18ch">Help define how autonomous media buying earns trust.</h2>
+      <p style="margin-top:14px">We're working with a small group of DSPs, agencies, and publishers to shape Truvra around real agentic workflows. Early partners get hands-on input into the roadmap and first access at launch.</p>
+      <div class="hero-cta">
+        <a class="btn btn-warm btn-lg" href="contact.html#demo">Become a design partner</a>
+        <a class="btn btn-ghost btn-lg" href="contact.html#waitlist" style="background:transparent;color:#fff;border-color:rgba(255,255,255,.5)">Join the waitlist</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">
+          <svg class="logo" viewBox="0 0 40 40" fill="none" aria-hidden="true"><circle cx="20" cy="20" r="18.5" stroke="#F2A65A" stroke-width="2"/><path d="M12 20.5L18 26.5L29 14.5" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Truvra
+        </div>
+        <p style="color:#9AA4B0;font-size:14.5px;max-width:34ch">The trust and governance layer for agentic media buying.</p>
+        <p style="color:#788494;font-size:13px;margin-top:16px">A Ritava company.</p>
+      </div>
+      <div class="foot-col"><h5>Product</h5><a href="product.html">Platform</a><a href="index.html#how">How it works</a><a href="product.html#security">Security &amp; audit</a></div>
+      <div class="foot-col"><h5>Company</h5><a href="company.html">About</a><a href="company.html#vision">Vision</a><a href="contact.html">Contact</a></div>
+      <div class="foot-col"><h5>Legal</h5><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Ritava, Inc. All rights reserved.</span>
+      <span class="foot-pills">Verify · Authorize · Govern · Prove</span>
+    </div>
+  </div>
+</footer>
+
+<!-- cookie banner -->
+<div class="cookie" role="dialog" aria-label="Cookie notice" aria-live="polite">
+  <p>We use essential cookies to run this site and optional analytics to improve it. See our <a href="privacy.html">Privacy Policy</a>.</p>
+  <div class="cookie-actions">
+    <button class="btn btn-primary" data-accept>Accept all</button>
+    <button class="btn btn-ghost" data-decline>Essential only</button>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
