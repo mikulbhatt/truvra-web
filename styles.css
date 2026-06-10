@@ -308,3 +308,35 @@ a:focus-visible,.btn:focus-visible,button:focus-visible,input:focus-visible,sele
 .card .tag-add{color:var(--apricot-deep);background:var(--apricot-tint)}
 .stage h3{display:flex;align-items:center;gap:8px}
 .stage .step-n{font-family:"Inter",sans-serif;font-size:12px;font-weight:700;color:var(--muted-2)}
+
+/* ---------- motion: "live" control-plane card + diagram signals ---------- */
+.cp-badge{position:relative}
+/* reduced-motion users: hide moving SVG signal dots, no card animation */
+@media (prefers-reduced-motion: reduce){ .flow-dot{display:none} }
+
+@media (prefers-reduced-motion: no-preference){
+  /* rows stream in like a live feed */
+  .cp-card .cp-row{opacity:0;animation:cpRowIn .55s cubic-bezier(.2,.7,.3,1) forwards}
+  .cp-card .cp-row:nth-child(2){animation-delay:.25s}
+  .cp-card .cp-row:nth-child(3){animation-delay:.55s}
+  .cp-card .cp-row:nth-child(4){animation-delay:.85s}
+  .cp-card .cp-row:nth-child(5){animation-delay:1.15s}
+  @keyframes cpRowIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  /* pulsing live dot on the badge */
+  .cp-badge{padding-left:24px}
+  .cp-badge::before{content:"";position:absolute;left:10px;top:50%;width:7px;height:7px;margin-top:-3.5px;border-radius:50%;background:var(--teal);animation:cpLive 1.9s ease-out infinite}
+  @keyframes cpLive{0%{box-shadow:0 0 0 0 rgba(14,124,113,.5)}70%{box-shadow:0 0 0 8px rgba(14,124,113,0)}100%{box-shadow:0 0 0 0 rgba(14,124,113,0)}}
+  /* the "held" alert breathes to draw the eye */
+  .cp-status.cp-hold{animation:cpHold 2.4s ease-in-out infinite}
+  @keyframes cpHold{0%,100%{box-shadow:0 0 0 0 rgba(242,166,90,0)}50%{box-shadow:0 0 0 4px rgba(242,166,90,.28)}}
+
+  /* animated logo: the apricot ring slowly orbits; the check draws in on load */
+  .brand .logo circle[stroke-dasharray]{transform-origin:20px 20px;animation:logoOrbit 26s linear infinite}
+  @keyframes logoOrbit{to{transform:rotate(360deg)}}
+  .brand .logo path{stroke-dasharray:42;stroke-dashoffset:42;animation:logoDraw 1.1s ease forwards .25s}
+  @keyframes logoDraw{to{stroke-dashoffset:0}}
+  .brand:hover .logo circle[stroke-dasharray]{animation-duration:6s}
+  /* the mark radiates order as it draws in (one-time, like a sunrise) */
+  .brand .logo{animation:logoRadiate 1.9s ease-out .2s 1}
+  @keyframes logoRadiate{0%{filter:drop-shadow(0 0 0 rgba(14,124,113,0))}30%{filter:drop-shadow(0 0 7px rgba(14,124,113,.55))}100%{filter:drop-shadow(0 0 0 rgba(14,124,113,0))}}
+}
